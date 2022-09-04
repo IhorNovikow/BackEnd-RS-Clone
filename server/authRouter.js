@@ -22,18 +22,12 @@ router.post('/login', controller.login);
 router.get('/users', controller.getUsers);
 
 router.put(`/users/:username/`, async function getUser(req, res) {
-
 	try {
-
 		const user = await User.updateOne(
 			{ "username": req.params.username }, // Filter
 			{ $set: { 'score': req.body.score } }, // Update
-
-
 		)
-
 		res.json(user);
-
 	} catch (e) {
 		console.log(e)
 	}
